@@ -14,7 +14,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Makaleler',
-    icon: 'home-outline',
+    icon: 'bookmark',
     link: '/pages/makaleler',
   },
   {

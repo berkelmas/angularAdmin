@@ -21,6 +21,20 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDSvICw3uJVd45aq-SuZDD6_lgZMxCAkgo',
+  authDomain: 'angulardeneme-66aba.firebaseapp.com',
+  databaseURL: 'https://angulardeneme-66aba.firebaseio.com',
+  projectId: 'angulardeneme-66aba',
+  storageBucket: 'angulardeneme-66aba.appspot.com',
+  messagingSenderId: '236947855033',
+  appId: '1:236947855033:web:e87dc7aa9d5c7539',
+};
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,6 +42,9 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
 
     ThemeModule.forRoot(),
 
