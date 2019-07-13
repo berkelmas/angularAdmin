@@ -13,6 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
+    title: 'Makaleler',
+    icon: 'home-outline',
+    link: '/pages/makaleler',
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

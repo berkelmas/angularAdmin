@@ -8,6 +8,12 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
+import { MakalelerComponent } from './makaleler/makaleler.component';
+import { SmartTableComponent } from './tables/smart-table/smart-table.component';
+
+import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 @NgModule({
   imports: [
     PagesRoutingModule,
@@ -16,9 +22,17 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
+
+    NbCardModule,
+    NbTreeGridModule,
+    NbIconModule,
+    NbInputModule,
+    Ng2SmartTableModule,
   ],
   declarations: [
     PagesComponent,
+    MakalelerComponent,
+    SmartTableComponent,
   ],
 })
 export class PagesModule {
