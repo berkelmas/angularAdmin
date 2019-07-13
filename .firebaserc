@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angulardeneme-66aba"
+  },
+  "targets": {
+    "angulardeneme-66aba": {
+      "hosting": {
+        "siteyonetim": [
+          "siteyonetim"
+        ]
+      }
+    }
+  }
+}
