@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { NbDialogService } from '@nebular/theme';
 import { ShowcaseDialogComponent } from '../showcase-dialog/showcase-dialog.component';
 import { LocalDataSource } from 'ng2-smart-table';
@@ -71,8 +73,10 @@ export class SmartTableComponent implements OnInit {
   data: LocalDataSource = new LocalDataSource();
   gotData: any = [];
 
-  constructor(private dialogService: NbDialogService, private makalelerService: MakalelerService) {
-  }
+  constructor(
+    private dialogService: NbDialogService,
+    private makalelerService: MakalelerService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -87,8 +91,7 @@ export class SmartTableComponent implements OnInit {
           ));
           this.data.load(this.gotData);
       },
-
-          );
+    );
 
   }
 
@@ -100,11 +103,7 @@ export class SmartTableComponent implements OnInit {
     }
   }
 
-  openEditDialog(event) {
-    this.dialogService.open(ShowcaseDialogComponent, {
-      context: {
-        title: `${event.data.makaleId}`,
-      },
-    });
+  openEditWindow(event) {
+    this.router.navigate(['/pages/makaleler', `${event.data.ID}`, `${event.data.makale_slug}`]);
   }
 }

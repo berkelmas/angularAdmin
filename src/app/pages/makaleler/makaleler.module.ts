@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MakalelerComponent } from './makaleler.component';
+import { CKEditorComponent } from './editmakale/ckeditor/ckeditor.component';
+
 import { MakalelerRoutingModule } from './makalelerRouting.module';
 
 import { ShowcaseDialogComponent } from './showcase-dialog/showcase-dialog.component';
@@ -18,6 +21,8 @@ import {
   NbTabsetModule,
   NbIconModule,
 } from '@nebular/theme';
+import { CKEditorModule } from 'ng2-ckeditor';
+import { EditmakaleComponent } from './editmakale/editmakale.component';
 
 const ENTRY_COMPONENTS = [
   ShowcaseDialogComponent,
@@ -35,11 +40,16 @@ const ENTRY_COMPONENTS = [
     NbTabsetModule,
     NbIconModule,
     Ng2SmartTableModule,
+    CKEditorModule,
+
+    FormsModule,
   ],
   declarations: [
     MakalelerComponent,
     SmartTableComponent,
     ShowcaseDialogComponent,
+    CKEditorComponent,
+    EditmakaleComponent,
   ],
   entryComponents: [
     ...ENTRY_COMPONENTS,
