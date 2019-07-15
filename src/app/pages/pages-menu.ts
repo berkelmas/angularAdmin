@@ -11,4 +11,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'book-open',
     link: '/pages/makaleler/addmakale',
   },
+  {
+    title: 'Uzmanlıklar',
+    icon: 'archive-outline',
+    link: '/pages/uzmanliklar',
+  },
 ];

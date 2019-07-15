@@ -11,22 +11,27 @@ import {
 import { LoginpageComponent } from './authentication/loginpage/loginpage.component';
 
 import {
+  AngularFireAuthGuard,
   redirectUnauthorizedTo,
-  canActivate,
+  redirectLoggedInTo,
 } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = redirectUnauthorizedTo(['/auth/login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/auth/login']);
+const redirectLoggedInToMakaleler = () => redirectLoggedInTo(['/pages/makaleler']);
 
 const routes: Routes = [
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
-      ...canActivate(redirectUnauthorizedToLogin),
+      canActivate: [AngularFireAuthGuard],
+      data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'auth',
     component: NbAuthComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToMakaleler },
     children: [
       {
         path: '',
@@ -54,7 +59,10 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '',
+    redirectTo: '/auth/login',
+    pathMatch: 'full',
+  },
   { path: '**', redirectTo: 'pages' },
 ];
 

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { MakalelerComponent } from './makaleler.component';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SmartTableComponent } from './smart-table/smart-table.component';
 import { EditmakaleComponent } from './editmakale/editmakale.component';
 import { AddmakaleComponent } from './addmakale/addmakale.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MakalelerComponent,
+    component: SmartTableComponent,
   },
   {
     path: 'addmakale',

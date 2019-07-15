@@ -1,0 +1,23 @@
+<nb-card>
+  <nb-card-header>{{ uzmanlik_baslik }} Uzmanlığını Düzenle</nb-card-header>
+  <nb-card-body>
+    <form (submit)="handleUpdateSubmit(updateForm)" #updateForm="ngForm">
+
+      <div class="form-group row">
+        <label for="inputEmail1" class="label col-sm-3 col-form-label">Uzmanlık Başlığı</label>
+        <div class="col-sm-9">
+          <input [(ngModel)]="uzmanlik_baslik" name="uzmanlik_baslik" type="text" nbInput fullWidth id="inputEmail1" placeholder="Uzmanlık Başlığı" disabled>
+        </div>
+      </div>
+
+      <ckeditor [(ngModel)]="uzmanlik_mesaj" name="uzmanlik_mesaj" [config]="{ extraPlugins: 'divarea', height: '320' }"></ckeditor>
+
+      <div class="form-group row mt-3">
+        <div class="col-sm-9">
+          <button type="submit" nbButton status="primary">Düzenle</button>
+        </div>
+      </div>
+
+    </form>
+  </nb-card-body>
+</nb-card>

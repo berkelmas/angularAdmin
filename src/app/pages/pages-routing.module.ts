@@ -14,6 +14,11 @@ const routes: Routes = [{
         .then(m => m.MakalelerModule),
     },
     {
+      path: 'uzmanliklar',
+      loadChildren: () => import('./uzmanliklar/uzmanliklar.module')
+        .then(m => m.UzmanliklarModule),
+    },
+    {
       path: '',
       redirectTo: 'makaleler',
       pathMatch: 'full',

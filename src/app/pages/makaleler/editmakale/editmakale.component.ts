@@ -41,8 +41,8 @@ export class EditmakaleComponent implements OnInit {
       this.makale_mesaj,
       this.makale_meta_description,
     ).then(res => {
-      console.log('İşlem Başarılı');
+      return res;
     })
-    .catch(err => console.log(err));
+    .catch(err => err);
   }
 }

@@ -40,13 +40,12 @@ export class AddmakaleComponent implements OnInit {
         form.reset();
         this.makale_kategori = 'kategorisec';
         this.makale_mesaj = '';
-        console.log('Makale Yüklemesi Başarılı...')
       })
-      .catch(err => console.log(err));
+      .catch(err => err);
 
     } else {
 
-      console.log('olmadı knk');
+      return;
 
     }
   }
