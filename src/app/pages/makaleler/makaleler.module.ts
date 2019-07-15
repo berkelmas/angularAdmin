@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MakalelerComponent } from './makaleler.component';
-import { CKEditorComponent } from './editmakale/ckeditor/ckeditor.component';
 
 import { MakalelerRoutingModule } from './makalelerRouting.module';
 
@@ -9,6 +8,10 @@ import { ShowcaseDialogComponent } from './showcase-dialog/showcase-dialog.compo
 import { SmartTableComponent } from './smart-table/smart-table.component';
 
 import { MakalelerService } from './makaleler.service';
+
+// Import CKEditor
+import './ckeditor.loader';
+import 'ckeditor';
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import {
@@ -23,6 +26,7 @@ import {
 } from '@nebular/theme';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { EditmakaleComponent } from './editmakale/editmakale.component';
+import { AddmakaleComponent } from './addmakale/addmakale.component';
 
 const ENTRY_COMPONENTS = [
   ShowcaseDialogComponent,
@@ -48,8 +52,8 @@ const ENTRY_COMPONENTS = [
     MakalelerComponent,
     SmartTableComponent,
     ShowcaseDialogComponent,
-    CKEditorComponent,
     EditmakaleComponent,
+    AddmakaleComponent,
   ],
   entryComponents: [
     ...ENTRY_COMPONENTS,

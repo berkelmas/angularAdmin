@@ -74,33 +74,42 @@ export class SmartTableComponent implements OnInit {
   gotData: any = [];
 
   constructor(
-    private dialogService: NbDialogService,
+    // private dialogService: NbDialogService,
     private makalelerService: MakalelerService,
-    private router: Router) { }
+    private router: Router,
+    private dialogService: NbDialogService,
+  ) { }
 
   ngOnInit() {
 
     this.makalelerService.denemeFunc()
       .subscribe(res => {
-        res.map(action =>
+        this.gotData = [];
+        res.map(action => {
           this.gotData.push(
             {
               ...action.payload.doc.data(),
               ID: action.payload.doc.id,
             },
-          ));
+          );
+        },
+
+        );
           this.data.load(this.gotData);
       },
     );
 
   }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  onDeleteConfirm(event) {
+    this.dialogService.open(ShowcaseDialogComponent,
+      {
+        context: {
+          title : `${event.data.makale_baslik}`,
+          id: event.data.ID,
+        },
+      },
+    );
   }
 
   openEditWindow(event) {

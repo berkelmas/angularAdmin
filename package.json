@@ -57,6 +57,7 @@
     "core-js": "2.5.1",
     "echarts": "^4.0.2",
     "eva-icons": "^1.1.0",
+    "firebase": ">= 5.5.7 <7",
     "intl": "1.2.5",
     "ionicons": "2.0.1",
     "leaflet": "1.2.0",
@@ -71,13 +72,13 @@
     "roboto-fontface": "0.8.0",
     "rxjs": "6.5.2",
     "rxjs-compat": "6.3.0",
+    "slugify": "^1.3.4",
     "socicon": "3.0.5",
     "tinymce": "4.5.7",
     "tslib": "^1.9.0",
     "typeface-exo": "0.0.22",
     "web-animations-js": "github:angular/web-animations-js#release_pr208",
-    "zone.js": "~0.9.1",
-    "firebase": ">= 5.5.7 <7"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.2",

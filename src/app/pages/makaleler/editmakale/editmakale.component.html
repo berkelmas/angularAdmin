@@ -1,19 +1,19 @@
 <nb-card>
-  <nb-card-header>... Makalesini Düzenle</nb-card-header>
+  <nb-card-header>{{ makale_baslik }} Makalesini Düzenle</nb-card-header>
   <nb-card-body>
     <form (submit)="handleUpdateSubmit(updateForm)" #updateForm="ngForm">
 
       <div class="form-group row">
         <label for="inputEmail1" class="label col-sm-3 col-form-label">Makale Başlığı</label>
         <div class="col-sm-9">
-          <input ngModel name="makale_baslik" [value]="makaleData ? makaleData.makale_baslik : ''" type="text" nbInput fullWidth id="inputEmail1" placeholder="Makale Başlığı">
+          <input [(ngModel)]="makale_baslik" name="makale_baslik" type="text" nbInput fullWidth id="inputEmail1" placeholder="Makale Başlığı">
         </div>
       </div>
 
       <div class="form-group row">
         <label for="inputkategori" class="label col-sm-3 col-form-label">Makale Kategorisi</label>
         <div class="col-sm-9">
-          <nb-select ngModel name="makale_kategori" id="inputkategori" [selected]="makaleData ? makaleData.makale_kategori : 'sozlesmelerhukuku'">
+          <nb-select [(ngModel)]="makale_kategori" name="makale_kategori" id="inputkategori">
             <nb-option value="ishukuku">İş Hukuku</nb-option>
             <nb-option value="cezahukuku">Ceza Hukuku</nb-option>
             <nb-option value="ticarethukuku">Ticaret Hukuku</nb-option>
@@ -27,14 +27,14 @@
       <div class="form-group row">
         <label for="inputmetaaciklama" class="label col-sm-3 col-form-label">Makale Meta Açıklaması</label>
         <div class="col-sm-9">
-          <input ngModel name="makale_meta_description" [value]="makaleData ? makaleData.makale_meta_description : ''" type="text" nbInput fullWidth id="inputmetaaciklama" placeholder="Makale Meta Açıklaması">
+          <input [(ngModel)]="makale_meta_description" name="makale_meta_description" type="text" nbInput fullWidth id="inputmetaaciklama" placeholder="Makale Meta Açıklaması">
         </div>
       </div>
 
-      <ngx-ckeditor [data]="makaleData ? makaleData.makale_mesaj : ''"></ngx-ckeditor>
+      <ckeditor [(ngModel)]="makale_mesaj" name="makale_mesaj" [config]="{ extraPlugins: 'divarea', height: '320' }"></ckeditor>
 
-      <div class="form-group row">
-        <div class="offset-sm-3 col-sm-9">
+      <div class="form-group row mt-3">
+        <div class="col-sm-9">
           <button type="submit" nbButton status="primary">Düzenle</button>
         </div>
       </div>

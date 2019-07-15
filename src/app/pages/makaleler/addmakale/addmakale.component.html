@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Yeni Makale Ekle</nb-card-header>
+      <nb-card-body>
+
+        <form (submit)="handleAddSubmit(addMakaleForm)" #addMakaleForm="ngForm" class="form-horizontal">
+
+          <div class="form-group row">
+            <label for="makaleBaslik" class="label col-sm-3 form-control-label">Makale Başlığı</label>
+            <div class="col-sm-9">
+              <input [(ngModel)]="makale_baslik" name="makale_baslik" type="text" nbInput fullWidth id="makaleBaslik" placeholder="Makale Başlığı">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputkategori" class="label col-sm-3 col-form-label">Makale Kategorisi</label>
+            <div class="col-sm-9">
+              <nb-select [(ngModel)]="makale_kategori" name="makale_kategori" id="inputkategori" selected="kategorisec">
+                <nb-option value="kategorisec">Lütfen Kategori Seçiniz</nb-option>
+                <nb-option value="ishukuku">İş Hukuku</nb-option>
+                <nb-option value="cezahukuku">Ceza Hukuku</nb-option>
+                <nb-option value="ticarethukuku">Ticaret Hukuku</nb-option>
+                <nb-option value="ailehukuku">Aile Hukuku</nb-option>
+                <nb-option value="gayrimenkulhukuku">Gayrimenkul Hukuku</nb-option>
+                <nb-option value="sozlesmelerhukuku">Sözleşmeler Hukuku</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="makaleMetaDescription" class="label col-sm-3 form-control-label">Makale Meta Açıklaması</label>
+            <div class="col-sm-9">
+              <input [(ngModel)]="makale_meta_description" name="makale_meta_description" type="text" nbInput fullWidth id="makaleMetaDescription" placeholder="Makale Meta Açıklaması">
+            </div>
+          </div>
+
+          <ckeditor [(ngModel)]="makale_mesaj" name="makale_mesaj" [config]="{ extraPlugins: 'divarea', height: '320' }"></ckeditor>
+
+          <div class="form-group row">
+            <div class="col-sm-9 mt-3">
+              <button type="submit" nbButton status="success">Makale Ekle</button>
+            </div>
+          </div>
+
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

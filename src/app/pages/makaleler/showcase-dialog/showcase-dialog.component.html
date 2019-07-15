@@ -1,9 +1,10 @@
 <nb-card>
-  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-header>{{ title }} Makalesini Sil</nb-card-header>
   <nb-card-body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum reprehenderit tempora doloremque, ipsum quae enim ab inventore eum. Excepturi praesentium, optio magnam deleniti quia dolore facilis natus inventore repudiandae aperiam.</p>
+    <p>{{ title }} makalesini silmek istediğinizden emin misiniz ?</p>
   </nb-card-body>
   <nb-card-footer>
     <button nbButton hero status="primary" (click)="dismiss()">Kapat</button>
+    <button class="ml-3" nbButton hero status="danger" (click)="sendDeleteSignal()">Sil</button>
   </nb-card-footer>
 </nb-card>

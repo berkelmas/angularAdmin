@@ -2,18 +2,27 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import {
   NbAuthComponent,
-  NbLoginComponent,
   NbLogoutComponent,
   NbRegisterComponent,
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
 
+import { LoginpageComponent } from './authentication/loginpage/loginpage.component';
+
+import {
+  redirectUnauthorizedTo,
+  canActivate,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = redirectUnauthorizedTo(['/auth/login']);
+
 const routes: Routes = [
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
+      ...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: 'auth',
@@ -21,11 +30,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component: LoginpageComponent,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: LoginpageComponent,
       },
       {
         path: 'register',
